@@ -1,57 +1,57 @@
 # Processi e Thread
 🔗 https://didatticaonline.unitn.it/dol/pluginfile.php/1578294/mod_resource/content/1/05-Processi%20e%20Threadslong.pdf
 
-[[Indice 4 Processi e Threads]]
+[Indice 4 Processi e Threads](Indice%204%20Processi%20e%20Threads.md)
 
 ---
 
 `11/03/2022`
 
-![[Concetto di processo]]
+![Concetto di processo](Concetto%20di%20processo.md)
 
-![[Immagine in memoria]]
+![Immagine in memoria](Immagine%20in%20memoria.md)
 
-![[Stato di un processo]]
+![Stato di un processo](Stato%20di%20un%20processo.md)
 
-![[Scheduling]]
+![Scheduling](Scheduling.md)
 
-![[Code di scheduling]]
+![Code di scheduling](Code%20di%20scheduling.md)
 
-![[Operazione di dispatch]]
+![Operazione di dispatch](Operazione%20di%20dispatch.md)
 
 
 `17/03/2022`
 
-![[Operazione sui processi]]
+![Operazione sui processi](Operazione%20sui%20processi.md)
 
-![[Creazione di un processo]]
+![Creazione di un processo](Creazione%20di%20un%20processo.md)
 
-![[Creazione processo in UNIX]]
+![Creazione processo in UNIX](Creazione%20processo%20in%20UNIX.md)
 
-![[Terminazione di un processo]]
+![Terminazione di un processo](Terminazione%20di%20un%20processo.md)
 
-![[Thread]]
+![Thread](Thread.md)
 
-![[Multi-threading]]
+![Multi-threading](Multi-threading.md)
 
-![[Vantaggi Multi-threading]]
+![Vantaggi Multi-threading](Vantaggi%20Multi-threading.md)
 
 **Esempi slide 32 - 33**
 - nota che non necessariamente in slide 33 si dopo che primo thread va in time-limit si esegue l'altro, tutti e due sono di nuovo di fase di pronto e viene estratto un altro (che potrebbe essere di nuovo il primo)
 
-![[Stati di un thread]]
+![Stati di un thread](Stati%20di%20un%20thread.md)
 
-![[Implementazione di thread]]
+![Implementazione di thread](Implementazione%20di%20thread.md)
 
-![[Vantaggi e svantaggi User-level thread]]
+![Vantaggi e svantaggi User-level thread](Vantaggi%20e%20svantaggi%20User-level%20thread.md)
 
 `18/03/22`
 
-![[Vantaggie e svantaggi Kernel-level thread]]
+![Vantaggie e svantaggi Kernel-level thread](Vantaggie%20e%20svantaggi%20Kernel-level%20thread.md)
 
-![[LIBRERIA POSIX PTHREADS]]
+![LIBRERIA POSIX PTHREADS](LIBRERIA%20POSIX%20PTHREADS.md)
 
-![[Esempio threads con posix]]
+![Esempio threads con posix](Esempio%20threads%20con%20posix.md)
 
 
 Sincronizzazione tra thread
@@ -62,27 +62,27 @@ Sincronizzazione tra thread
 
 RELAZIONE TRA PROCESSI
 
-![[Relazione tra processi]]
+![Relazione tra processi](Relazione%20tra%20processi.md)
 
-![[Modelli di comunicazione processi cooperanti]]
+![Modelli di comunicazione processi cooperanti](Modelli%20di%20comunicazione%20processi%20cooperanti.md)
 
-![[Message Passing]]
+![Message Passing](Message%20Passing.md)
 
-![[Meccanismi per Message Passing]]
+![Meccanismi per Message Passing](Meccanismi%20per%20Message%20Passing.md)
 
-![[Nominazione Message Passing]]
+![Nominazione Message Passing](Nominazione%20Message%20Passing.md)
 	
-![[Comunicazione diretta Message Passing]]
+![Comunicazione diretta Message Passing](Comunicazione%20diretta%20Message%20Passing.md)
 
-![[Comunicazione indiretta Message Passing]]
+![Comunicazione indiretta Message Passing](Comunicazione%20indiretta%20Message%20Passing.md)
 
-![[Sincronizzazione Message Passing]]
+![Sincronizzazione Message Passing](Sincronizzazione%20Message%20Passing.md)
 
-![[Memoria condivisa]]
+![Memoria condivisa](Memoria%20condivisa.md)
 
-![[Memoria condivisa in Posix]]
+![Memoria condivisa in Posix](Memoria%20condivisa%20in%20Posix.md)
 
-![[Pipe]]
+![Pipe](Pipe.md)
 
 esempi di codice
 ...
