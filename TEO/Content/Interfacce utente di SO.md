@@ -1,0 +1,11 @@
+Interfacce utente di SO
+- interprete puo fornire vari tipo di interfaccia utente
+	- **interfaccia batch**
+	- **linea di comando** (CLI: Command-Line)
+		- si digita comando direttamente 
+		- spesso implementato in kernel
+		- diverse varianti implementate - shells
+	- **interfaccia grafica** (GUI: Graphics User Interface)
+		- interfaccia più intuitiva (desktop)
+		- si lega a mouse e tastiera (input) e monitor (output)
+		- icone, cartelle, ...

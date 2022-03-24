@@ -1,0 +1,16 @@
+Pipe
+- **condotte che permettono a 2 processi di comunicare**
+- problemi di implementazione (direzionalità, duplex, ...)
+- **Pipe Ordinarie**
+	- comunicazione in un stile standard produttore-consumatore
+		- **produttore** scrive ad un estremitá (write-end)
+		- **consumatore** legge all’altra estremitá (read-end)
+	- unidirezionali
+	- deve esserci relazione padre-figlio tra i processi comunicanti
+	- **slide 82**
+- **Pipe con Nome**
+	- piu potenti delle ordinarie
+	- **bidirezionali**
+	- no relazione padre-figlio richiesta
+	- **piú processi possono usare la stessa pipe per comunicare**
+	- sia Unix che Win

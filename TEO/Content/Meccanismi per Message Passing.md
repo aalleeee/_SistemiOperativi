@@ -1,0 +1,11 @@
+Meccanismi per [[Message Passing]]
+- `send`
+- `receive`
+- c'è anche versione in cui non si specifica destinazione e sorgente
+	- implicito
+- controllare se messaggio ha lung fissa o variabile
+- devono garantire che si stabilire canale di comunicazione che resiste
+- può essere sia implementazione fisica
+- che logica
+- decisioni implementative
+	- come viene stabilito un canale, canale associato a piu processi? quanti canali, dimension ...

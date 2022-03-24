@@ -1,0 +1,22 @@
+Comunicazione indiretta [[Message Passing]]
+messaggi sono spediti e ricevuti da **mailboxes** (o porte)
+- ho mailbox o porte intermedie
+- spedisco alla mailbox e ricevo da mailbox
+- mailbox ha id unico e permantente
+- proc possono comunicare solo se condividono una mailbox
+- operazioni
+	- crea nuova mailbox
+	- send e receive mes tramite mailbox
+	- elimino mailbox
+- primitive
+	- `send(A, message)` : spedire un messaggio alla mailbox A
+	- `receive(A, message)` : ricevere un messaggio dalla mailbox A
+- decisioni implementative
+	- stabilire proprietà del canale (direzionalità, condivisione ...)
+	- ...
+- condivisione di mailbox
+	-  se ho piu proc che condividono una mailbox
+		- posso permettere a canale di essere associato a max 2 proc
+		- posso permettere a solo un proc alla volta di fare receive
+		- posso al sistema di selezionare in modo arbitrario il ricevente ...
+- [[Sincronizzazione Message Passing|sincronizzazione]]

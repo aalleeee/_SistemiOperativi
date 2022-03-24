@@ -1,0 +1,11 @@
+Stati di un thread
+	- pronto
+	- in esecuzione
+	- attesa
+- ogni thread ha suo stato
+- processo ha suo stato
+- quindi
+	- **stato del processo puo essere diverso da stato di uno suo thread**
+	- in base a implementazione stato di un thread puo influenzare quello del processo
+		- ex un thread è in attesa -> anche processo viene messo in attesa (anche se magari suo stato era diverso)
+		- dipende da implementazione

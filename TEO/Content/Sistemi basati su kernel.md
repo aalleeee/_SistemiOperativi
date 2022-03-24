@@ -1,0 +1,19 @@
+Sistemi basati su kernel
+- due livelli
+	- **servizi kernel**
+	- **servizi non kernel**
+- vantaggi si sistema a livelli (che non sono troppi)
+- svantaggi
+	- limite di avere solo kernel
+	- no regole per parti so fuori dal kernel
+	- kernel diventa monolitico
+	- problema di device driver delle periferiche
+		- device driver sviluppato da terze parti entra nel kernel e, di fatto, può fare quello che vuole perché kernel monolitico
+	- soluzione: ora so hanno meccanismo di certificazione di device driver
+		- solo se c'è certifcazione so consente di installarlo
+- per linux è nato progetto SELiunux
+	- avere so più sicuro e stabile
+	- possibilità di avere policy a singoli o gruppi processi del kernel
+	- molto difficile da amministrare
+	- Android gira con kernel linuk che è SELinux e sopra framework Java
+- alternativa a kernel monolitico: [[Sistemi basati su micro-kernel]]

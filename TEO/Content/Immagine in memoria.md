@@ -1,0 +1,28 @@
+quando programma caricato in memoria e diventa processo:
+- creo in ram un'**immagine** : **spazio di indirizzamento**
+	- ogni processo ne ha uno privato e da proteggere
+	- slide 5
+	- parti
+		- **parte di codice** - non cambia
+		- **variabili globali** (dati) - dim fissa
+		- **stack** (parte variabile)
+			- caricate i paramentri passati alle funzioni
+			- var locali
+			- valori di ritorno
+			- stack può crescere (processo che chiama altri processi), quando termina si ridimensiona
+		- **heap** (parte variabile)
+			- allocare mem a run time
+			- stack cresce da un lato, heap dall'altro
+			- c'è comunque una dim massima che un processo può avere
+		- **attributi**: **Process Control Block** ^2dd40b
+			- **slide 7** <-
+			- campi per il so per gestire il processo
+			- rappresenta ogni processo
+				- stato
+				- program counter
+				- valori di registro
+				- ...
+				- ...
+				- ...
+	- ex slide 6
+	- parte senza attributi: user address space

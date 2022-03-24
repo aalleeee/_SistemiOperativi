@@ -1,0 +1,16 @@
+Virtual Machine
+- non fa propriamente parte dei so
+- importante perché incide su come questi sono usati
+- concetto di virtualizzazione introdotto nel 72
+	- ma hd non era abbastanza potente (overhead)
+	- oggi molto usati (tutti i sistemi cloud sono virtualizzati)
+- so gira sopra vm
+- illusione di avere processi multipli ognuno che gira su proprio hw
+	- hw virtualizzato
+- piu so su stessa vm
+- slide 16
+- virtual machine tra hw e kernel
+	- problema del porting e suppo dei diversi so è compito della vm
+- **separazione** di 
+	- **multiprogrammazione (vm)**
+	- **presentazione (so)**

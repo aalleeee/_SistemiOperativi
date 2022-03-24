@@ -1,0 +1,15 @@
+Implementazione System Calls
+- al nome associato un numero che è indice in una tabella
+	- all'indice puntatore a implementazione
+- interfaccia invoca system call, kernel ritorna stato e valori di ritorno
+	- chiamata non deve conoscere implementazione
+- invocate da prog utente ma eseguite dal kernel
+	- da mod utente a mod kernel
+		- controllo passa al kernel
+		- che guarda indice e poi arriva a implementazione
+		- la chiama e ritorna valori
+			- nuovo cambio a mod utente
+		- **slide 27**
+	- due cambi di modalità
+- ex slide 28
+	- problema di passare i paramentri per far comunicare so e processo

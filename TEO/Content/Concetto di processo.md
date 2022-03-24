@@ -1,0 +1,22 @@
+Concetto di processo
+- processo: programma in esecuzione
+	- se sta su disco è un programma (concetto passivo e statico)
+	- quando viene caricato in memoria diventa processo
+		- dinamico e attivo
+- **istanza di un programma in esecuzione** (tutte le fasi durante l'esecuzione) che viene creato in memoria 
+	- per esecuzione si intende dal momento in cui il prog viene caricato in ram fino a che esce e si dissolve
+	- se lancio 3 volte lo stesso prog ho 3 istanze diverse: 3 processi diversi
+	- **processi diversi identificati da thread di esecuzione diversi**
+		- anche se codice è lo stesso, le tracce di esecuzione sono diverse
+			- cambia in base a input
+			- cambia in base a come prog interagisce con ambiente e var di ambiente
+			- cambia in base a iterazione con altri processi
+- processi evolvono in modo **sequanziale** (in macchine unicore)
+	- un istruzione alla volta
+- devo gestire diversi processi e processi di diversi utente
+	- **multi-programmazione e time-sharing**
+	- competono per le risorse fisiche e logiche che sono limitate
+	- **esecuzione concorrente**
+	- bisogna anche gestire processi di so
+		- che sono privilegiati
+		- ma deve usare le risorse per il minor tempo possibile e solo quondo necessario

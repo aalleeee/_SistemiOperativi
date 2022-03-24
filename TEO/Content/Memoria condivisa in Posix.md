@@ -1,0 +1,28 @@
+[[Memoria condivisa]] in Posix
+- `shmget`
+	- shared memory get
+	- alloco zona di memoria condivisa
+	- primo par me identificare il segmento che creo
+	- IPC_PRIVATE : crea shared memoria tra padre e figlio
+		- privata tra loro due
+	- size del segmento
+	- 3 param sono i privilegi con cui creo seg di mem
+	- ritorna identificativo di quel segmento
+- per renderlo operativo
+- `shmat`
+	- shared memory attach
+	- processo che vuole accedere alla memoria condivisa deve attacarsi a questa
+	- puntatore che fa rif a quella memo
+	- passa id ritornato da quella prima
+	- Null ..
+	- 0 per stessi priv con cui è stata creata
+- `sprintf`
+	- scrivere nel segmento condiviso
+	- passo il ris di shmat : processo è attaccato a seg condiviso e ci scrive sopra
+- `shmdt`
+	- detouch
+	- stacco se ho finito
+	- finito: il processo stacca il segmento di memoria dal proprio spazio di indirizzi
+- `shctl`
+	- rimuovo segmento allocato
+	- 2 par dice di rimuovere

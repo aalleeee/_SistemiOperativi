@@ -1,0 +1,13 @@
+Vantaggi [[Multi-threading]]
+- **riduzione tempo di risposta**
+	- con 1 cpu thread non sono in parallelo ma competono
+	- se uno è bloccato all'interno di stesso processo altri possono andare avanti
+- **condivisione di risorse**
+	- se thread devono accedere a zone di mem condivise, è molto piu semplice rispetto a farlo con i processi
+	- ovviamente anche le modifiche vanno a impattare sugli altri thread
+- **economia**
+	- context switch molto piu veloce perché PCB dei thread è molto piu semplice (contiene solo lo stato)
+	- anche creazione/terminazione piu semplice
+- **scalabilità**
+	- se ho piu cpu posso fare parallelismo thread
+	- fare multithreading dipende dal programma

@@ -1,0 +1,28 @@
+LIBRERIA POSIX PTHREADS
+Pthreads
+- includere libreria `<phread.h>`
+- quando creo un thread, questo ha serie di attributi che possono essere cambiati
+- a thread associata **struttura dati** con attributi i cui valori che possono essere impostati
+	- ex
+		- priorità
+		- dimensione dello stack
+- struttura *pthread_attr_t*
+	- deve essere inizializzata: `pthread_attr_init()`
+		- inizializza con valori di default
+		- contenitore di attributi
+- **crezione del thread**
+	- `pthread_create`
+	- paramentri:
+		- identificativo del thread
+		- oggetto della struttutura dati con attributi
+		- puntatore al routine: codice che è flusso di esecuzione del thread
+		- puntatore opzionale a argomenti che si devono passare al flusso stesso
+- **terminazione di un thread**
+	- quando finisce codice della routine
+	- o con chaimata exit nel codice con funzione `pthread_exit`
+- **sincronizzazione tra thread**
+	- un thread puo stopparsi in attesa di terminazione di un altro
+	- `pthread_join()`
+		- gli passo id del thread che devo aspettare
+		- chi chiama aspetta che thread indicato nel primo par finisca
+			- eventuali valori di ritorno del thread che sto aspettando vanno nel secondo param
