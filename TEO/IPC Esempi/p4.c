@@ -4,32 +4,31 @@
 #include <sys/shm.h>
 #include <sys/stat.h>
 
+// esempio di utlizzo pipe con nome
+// legato a p3.c
+
 int main()
-
 {
- key_t key;
- int   i,a;
-int  shm, shm1;
-char *addr, *addr1;
-    struct shmid_ds buf;
+  key_t key;
+  int i, a;
+  int shm, shm1;
+  char *addr, *addr1;
+  struct shmid_ds buf;
 
+  //si una pathname come key per la shmget()
+  key = ftok("pathname", 3);
+  printf("key=%d\n", key);
 
-  key = ftok("pathname", 3);  
-  printf("key=%d\n",key);
+  shm1 = shmget(key, 100, IPC_CREAT + S_IRUSR + S_IWUSR);
+  addr1 = shmat(shm1, NULL, 0);
 
-   shm1 = shmget(key, 100, IPC_CREAT+S_IRUSR+S_IWUSR);
-   addr1 = shmat (shm1, NULL, 0);
+  addr1 = shmat(shm1, NULL, 0);
 
-   addr1 = shmat (shm1, NULL, 0);
+  printf("P4: identifier of the shared memory shm1= %d\n", shm1);
+  printf("P4 read from shared memory %s\n", addr1);
+  sprintf(addr1, " P4 wrote on shared memory: bruno crispo");
+  printf("%s\n", addr1);
 
-   printf("P4: identifier of the shared memory shm1= %d\n", shm1);
-   printf("P4 read from shared memory %s\n", addr1);
-   sprintf(addr1, " P4 wrote on shared memory: bruno crispo");
-   printf("%s\n", addr1);
-  
-
-
-   shmdt(addr1);
-   shmctl(shm1,IPC_RMID,0); 
-  
- }
+  shmdt(addr1);
+  shmctl(shm1, IPC_RMID, 0);
+}
