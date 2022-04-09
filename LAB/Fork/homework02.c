@@ -1,28 +1,28 @@
-// Avendo come argomenti dei “binari”, si eseguono con exec ciascuno in un sottoprocesso (*)
-// in più salvando i flussi di stdout e stderr in un unico file (*)
+// Avendo come argomenti dei “binari”, si eseguono con exec ciascuno in un sottoprocesso ma in più salvando i flussi di stdout e stderr in un unico file
+#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
 #include <sys/wait.h>
 
-int main(int argc, char **argv)
-{
-  
-  int fo = open("file.txt", O_RDWR | O_CREAT, S_IRUSR | S_IWUSR);
-  dup2(fo,1); //stdout
-  dup2(fo,2); //stderr
-  for (int i = 1; i < argc; i++)
+int main(int argc, char** argv) {
+
+  int fd = open("temp.txt", O_RDWR | O_CREAT, S_IRUSR | S_IWUSR);
+  dup2(fd,1); // stdout
+  dup2(fd,2); // stderr
+  for(int i = 1; i < argc; i++)
   {
-    int fid = fork();
-    if(fid != -1)
+    int f = fork();
+    if(f == 0)
     {
-      //no error, new process
-      char * argList[] = {argv[i],NULL}; //Define arguments
-      execv(argv[i], argList); //Launch binary
+      //printf("New child\n");
+      char * par[] = {argv[i],NULL};
+      execv(argv[i],par);
     }
   }
-  while(wait(NULL)>0);
-  close(fo);
+  while (wait(NULL)>0);
+  close(fd);
+  
   return 0;
 }

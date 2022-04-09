@@ -1,4 +1,4 @@
-// Avendo come argomenti dei “binari”, si eseguono con exec ciascuno in un sottoprocesso (*)
+// Avendo come argomenti dei “binari”, si eseguono con exec ciascuno in un sottoprocesso
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -7,17 +7,18 @@
 
 int main(int argc, char **argv)
 {
+
   for (int i = 1; i < argc; i++)
   {
-    int fid = fork();
-    if(fid != -1)
+    int f = fork();
+    if (f == 0)
     {
-      //no error, new process
-      char * argList[] = {argv[i],NULL}; //Define arguments
-      execv(argv[i], argList); //Launch binary
+      // printf("New child\n");
+      char *par[] = {argv[i], NULL};
+      execv(argv[i], par);
     }
   }
-  while(wait(NULL)>0);
-  
+  while (wait(NULL) > 0);
+
   return 0;
 }
