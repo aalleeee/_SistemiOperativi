@@ -18,7 +18,7 @@ int main(int argc, char** argv) {
     {
       //printf("New child\n");
       char * par[] = {argv[i],NULL};
-      execv(argv[i],par);
+      execvp(argv[i],par);
     }
   }
   while (wait(NULL)>0);

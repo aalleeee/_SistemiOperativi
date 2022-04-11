@@ -13,9 +13,9 @@ int main(int argc, char **argv)
     int f = fork();
     if (f == 0)
     {
-      // printf("New child\n");
+      printf("[Child] (pid: %d)\n",getpid());
       char *par[] = {argv[i], NULL};
-      execv(argv[i], par);
+      execvp(argv[i], par);
     }
   }
   while (wait(NULL) > 0);
