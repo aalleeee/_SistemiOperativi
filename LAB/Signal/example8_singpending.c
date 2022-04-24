@@ -28,3 +28,8 @@ int main()
   while (1)
     ;
 }
+
+// ouput :
+// SIGUSR1 pending
+// SIGUSR1 received
+// SIGUSR1 not pending

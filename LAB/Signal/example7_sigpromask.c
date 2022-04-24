@@ -21,3 +21,5 @@ int main()
     if (i == 1)
       sigprocmask(SIG_BLOCK, &mod, &old);
 }
+
+// you can kill this process just with "kill <pid>"
