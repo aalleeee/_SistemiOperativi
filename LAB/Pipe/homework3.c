@@ -31,7 +31,7 @@ int main(int argc, char **argv)
   char token[MAXLEN];
   char *cmd1[MAXLEN], *cmd2[MAXLEN];
   int index = 1;
-  int i,j;
+  int i, j;
   int fd[2]; // pipe
 
   // min args : program, token, cmd1, token, cmd2 -> 5
@@ -54,7 +54,7 @@ int main(int argc, char **argv)
     cmd1[i] = argv[index];
     index++;
   }
-  
+
   cmd1[i++] = NULL;
 
   // check if other token is present
@@ -81,11 +81,16 @@ int main(int argc, char **argv)
 
   // ---------------
 
-  printf("%d  -  %d\n",i,j);
+  printf("%d  -  %d\n", i, j);
 
-
-for (int a=0; a<i; a++) { fprintf(stderr, "cmd1[%d]=%s\n", a, cmd1[a]); };
-for (int a=0; a<j; a++) { fprintf(stderr, "cmd2[%d]=%s\n", a, cmd2[a]); };
+  for (int a = 0; a < i; a++)
+  {
+    fprintf(stderr, "cmd1[%d]=%s\n", a, cmd1[a]);
+  };
+  for (int a = 0; a < j; a++)
+  {
+    fprintf(stderr, "cmd2[%d]=%s\n", a, cmd2[a]);
+  };
 
   pipe(fd); // Create unnamed pipe
   int f = !fork();
@@ -99,7 +104,7 @@ for (int a=0; a<j; a++) { fprintf(stderr, "cmd2[%d]=%s\n", a, cmd2[a]); };
     // parent
     // WRITE
     close(fd[READ]);
-    dup2(fd[WRITE],1);
+    dup2(fd[WRITE], 1);
     close(fd[WRITE]);
     execvp(cmd1[0], (char *const *)cmd1);
   }
@@ -108,7 +113,7 @@ for (int a=0; a<j; a++) { fprintf(stderr, "cmd2[%d]=%s\n", a, cmd2[a]); };
     // child
     // READ
     close(fd[WRITE]);
-    dup2(fd[READ],0);
+    dup2(fd[READ], 0);
     close(fd[READ]);
     execvp(cmd2[0], (char *const *)cmd2);
   }
