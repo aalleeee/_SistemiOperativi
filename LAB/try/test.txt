@@ -1,0 +1,10 @@
+a.c
+a.out
+a.txt
+ex2.sh
+main.out
+makefile
+prova
+prova.bk
+test.txt
+try.s
