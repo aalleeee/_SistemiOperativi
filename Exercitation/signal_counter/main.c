@@ -7,7 +7,14 @@
 #define MAXSLAVE 10
 
 int idx = -1;
+struct sigaction sa;
 void print_counter();
+
+typedef enum
+{
+  false,
+  true
+} bool;
 
 // check if application run in foreground
 bool foreground()
@@ -29,14 +36,15 @@ message report[MAXSLAVE];
 
 void refresh_counter(int tpid, int signum)
 {
-  //printf("-%d\n",tpid);
+  // printf("-%d\n",tpid);
   int found = -1;
   for (int i = 0; i < MAXSLAVE && found == -1; i++)
   {
     if (report[i].pid == tpid)
       found = i;
   }
-  if(found!=-1)printf("-%d\n",found);
+  if (found != -1)
+    printf("-%d\n", found);
 
   if (found == -1)
   { // new one
@@ -53,7 +61,7 @@ void refresh_counter(int tpid, int signum)
   else if (signum == SIGUSR2)
     report[idx].sig2++;
 
-  //print_counter();
+  // print_counter();
 }
 
 void print_counter()
@@ -73,21 +81,32 @@ void report_handler(int signum)
   exit(0);
 }
 
-void feed_handler(int signum)
+void feed_handler(int signum, siginfo_t *info, void *ctx)
 {
   if (foreground())
   {
     printf("\n  Foreground program receive signal %d\n", signum);
   }
-  refresh_counter(getpid(), signum);
+  if (signum == SIGUSR1 || signum == SIGUSR2)
+  {
+    int sender=(int)info->si_pid;
+    refresh_counter(sender, signum);
+  }
+  else if (signum == SIGINT || signum == SIGTERM)
+  {
+    print_counter();
+    exit(0);
+  }
 }
 
 int main(int argc, char const *argv[])
 {
-  signal(SIGUSR1, feed_handler);
-  signal(SIGUSR2, feed_handler);
-  signal(SIGINT, report_handler);
-  signal(SIGTERM, report_handler);
+  sa.sa_flags = SA_SIGINFO;
+  sa.sa_sigaction = feed_handler;
+  sigaction(SIGUSR1, &sa, NULL);
+  sigaction(SIGUSR2, &sa, NULL);
+  sigaction(SIGINT, &sa, NULL);
+  sigaction(SIGTERM, &sa, NULL);
 
   printf("-----------------------\n");
   printf("My PID is %d\n", getpid());
@@ -97,6 +116,8 @@ int main(int argc, char const *argv[])
   {
     /* code */
   }
+
+  print_counter();
 
   return 0;
 }
